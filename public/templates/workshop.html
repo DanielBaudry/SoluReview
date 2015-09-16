@@ -1,0 +1,33 @@
+<ion-view hide-nav-bar="true">
+  <ion-header-bar align-title="center" class="bar-light">
+	 <a href="#/tab/quiz" class="button icon-left ion-chevron-left button-clear button-light"></a>
+    <h1 class="title"><strong>Solucom</strong>'<span class="italic-text">meeting</span></h1>
+  </ion-header-bar>
+  
+   <ion-content class="content-stable">
+   
+    <h4 align="center" class="text-dark">
+		{{workshop}}
+    </h4>
+
+	<div ng-show="consultants.length" class="list card" ng-repeat="consultant in consultants">
+		<div class="item assertive">
+			
+			<h2>{{consultant.get('Name')}}</h2>
+			<p>
+			  {{consultant.get('Job')}}
+			<br >
+				{{consultant.get('Practice')}}
+			</p>
+		  </div>
+		  
+		  <div class="item item-image">
+			<img align="center" src="../img/{{consultant.get('Image')}}" style="max-width: 400px">
+		  </div>
+
+	</div>
+    
+	
+	
+  </ion-content>
+</ion-view>

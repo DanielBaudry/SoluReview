@@ -1,0 +1,63 @@
+<ion-view hide-nav-bar="true">
+  <ion-header-bar align-title="center" class="bar-light">
+	 <a href="#/practice" class="button icon-left ion-chevron-left button-clear button-light">Candidats</a>
+    <h1 class="title">Mes commentaires sur {{workshop}}</h1>
+  </ion-header-bar>
+  
+  <ion-content class="padding content-stable">
+
+    <div class="list card">
+		<div class="item assertive">
+			<h2 class="text-dark">{{candidat.get('name')}}</h2>
+			<button class="button button-block button-light" on-tap="extfile({{candidat.get('cv')}});" on-click="extfile({{candidat.get('cv')}});">Voir le CV</button>
+		</div>
+
+		<div class="item assertive" ng-show="!comments.length">
+		  <div class="list" style="text-align: center">
+			<h4 class="text-dark">Quel est votre ressenti général sur ce candidat ? 
+			</h4>
+			<p><img src="../img/like.png" width="30" height="30">
+			<input type="radio" role="radio" name="group2" value="like.png" ng-model="data.feedbackQ2" style="margin: 10px 10px 0 0;"/>
+			<input type="radio" role="radio" name="group2" value="dislike.png" ng-model="data.feedbackQ2" style="margin: 10px 0 0 0;"/>
+			<img src="../img/dislike.png" width="30" height="30"></p>
+		  </div>
+		</div>
+		
+		<div class="item assertive" ng-show="comments.length">
+		  <div class="list" style="text-align: center">
+			<h4 class="text-dark">Mon ressenti général sur ce candidat :
+			</h4>
+			<p><img src="../img/{{comments[0].get('like')}}" width="30" height="30"></p>
+		  </div>
+		</div>
+		
+      	<div ng-show="comments.length" class="list card" ng-repeat="comment in comments">
+				<div class="item item-avatar">
+					<img src="../img/user.png">
+					<h2>Commentaire</h2>
+					<p>{{comment.get('date') | date:'dd--MM-yyyy hh:mm'}}</p>
+				  </div>
+
+				  <div class="item item-body">
+					<p>
+					  {{comment.get('text')}}
+					</p>
+				  </div>
+			</div>
+	   
+	 
+	 
+	  <h3>Commentaire</h3>
+	  <div class="list" ng-show="comments.length">
+			Vous avez déjà donnez votre impression sur ce candidat !
+			<button class="button button-block button-light" ng-click="delComment()">Supprimer le commentaire</button>
+	  </div>
+	  <div class="list" ng-show="!comments.length">
+	  <label class="item item-input">
+          <textarea ng-model="data.messageText" placeholder="Commentaire" required></textarea>
+	   </label>
+	   </div>
+       <button ng-show="!comments.length" class="button button-block button-light" ng-click="message(data)">Envoyer</button>
+
+  </ion-content>
+</ion-view>

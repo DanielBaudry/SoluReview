@@ -1,0 +1,14 @@
+{
+  "global": {
+    "parseVersion": "1.4.2"
+  },
+  "applications": {
+    "_default": {
+      "link": "solureview"
+    },
+    "solureview": {
+      "applicationId": "MbK5KJynmGFAB1C1DaqobdkkFsof2EkRnDfO4Aq8",
+      "masterKey": "H4ANFBDuZLNHzb41DYs8lTv262N8nBcJm1pgvKNC"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<ion-view hide-nav-bar="true">
+  <ion-header-bar align-title="center" class="bar-light">
+	 <a href="#/tab/quiz" class="button icon-left ion-chevron-left button-clear button-light">Practices</a>
+    <h1 class="title">Candidats en {{workshop}}</h1>
+  </ion-header-bar>
+  
+  <ion-content class="padding content-stable">
+
+    <ul class="list card" ng-show="workshops.length" ng-repeat="workshop in workshops">
+
+      <a align="center" class="item item-text-wrap" ng-click="loadWorkshop({{workshop.get('candidatid')}})">
+        {{workshop.get('name')}}
+      </a>
+
+    </ul>
+	
+  </ion-content>
+</ion-view>
